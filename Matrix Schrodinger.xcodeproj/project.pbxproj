@@ -14,6 +14,18 @@
 		ABB8DF262ABE3A6600279E0B /* Matrix_SchrodingerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF252ABE3A6600279E0B /* Matrix_SchrodingerTests.swift */; };
 		ABB8DF302ABE3A6600279E0B /* Matrix_SchrodingerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF2F2ABE3A6600279E0B /* Matrix_SchrodingerUITests.swift */; };
 		ABB8DF322ABE3A6600279E0B /* Matrix_SchrodingerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF312ABE3A6600279E0B /* Matrix_SchrodingerUITestsLaunchTests.swift */; };
+		ABB8DF3F2ABE508B00279E0B /* Wavefunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF3E2ABE508B00279E0B /* Wavefunctions.swift */; };
+		ABB8DF402ABE508B00279E0B /* Wavefunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF3E2ABE508B00279E0B /* Wavefunctions.swift */; };
+		ABB8DF412ABE508B00279E0B /* Wavefunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF3E2ABE508B00279E0B /* Wavefunctions.swift */; };
+		ABB8DF432ABE586600279E0B /* Hamiltonian.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF422ABE586600279E0B /* Hamiltonian.swift */; };
+		ABB8DF442ABE586600279E0B /* Hamiltonian.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF422ABE586600279E0B /* Hamiltonian.swift */; };
+		ABB8DF452ABE586600279E0B /* Hamiltonian.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF422ABE586600279E0B /* Hamiltonian.swift */; };
+		ABB8DF472ABE64A800279E0B /* Energies.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF462ABE64A800279E0B /* Energies.swift */; };
+		ABB8DF482ABE64A800279E0B /* Energies.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF462ABE64A800279E0B /* Energies.swift */; };
+		ABB8DF492ABE64A800279E0B /* Energies.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF462ABE64A800279E0B /* Energies.swift */; };
+		ABB8DF4B2ABE69B800279E0B /* Potentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF4A2ABE69B800279E0B /* Potentials.swift */; };
+		ABB8DF4C2ABE69B800279E0B /* Potentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF4A2ABE69B800279E0B /* Potentials.swift */; };
+		ABB8DF4D2ABE69B800279E0B /* Potentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF4A2ABE69B800279E0B /* Potentials.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +57,10 @@
 		ABB8DF2B2ABE3A6600279E0B /* Matrix SchrodingerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Matrix SchrodingerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB8DF2F2ABE3A6600279E0B /* Matrix_SchrodingerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix_SchrodingerUITests.swift; sourceTree = "<group>"; };
 		ABB8DF312ABE3A6600279E0B /* Matrix_SchrodingerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix_SchrodingerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ABB8DF3E2ABE508B00279E0B /* Wavefunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wavefunctions.swift; sourceTree = "<group>"; };
+		ABB8DF422ABE586600279E0B /* Hamiltonian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hamiltonian.swift; sourceTree = "<group>"; };
+		ABB8DF462ABE64A800279E0B /* Energies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Energies.swift; sourceTree = "<group>"; };
+		ABB8DF4A2ABE69B800279E0B /* Potentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Potentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +113,10 @@
 			children = (
 				ABB8DF132ABE3A6500279E0B /* Matrix_SchrodingerApp.swift */,
 				ABB8DF152ABE3A6500279E0B /* ContentView.swift */,
+				ABB8DF3E2ABE508B00279E0B /* Wavefunctions.swift */,
+				ABB8DF462ABE64A800279E0B /* Energies.swift */,
+				ABB8DF422ABE586600279E0B /* Hamiltonian.swift */,
+				ABB8DF4A2ABE69B800279E0B /* Potentials.swift */,
 				ABB8DF172ABE3A6600279E0B /* Assets.xcassets */,
 				ABB8DF192ABE3A6600279E0B /* Matrix_Schrodinger.entitlements */,
 				ABB8DF1A2ABE3A6600279E0B /* Preview Content */,
@@ -259,7 +279,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB8DF4B2ABE69B800279E0B /* Potentials.swift in Sources */,
+				ABB8DF432ABE586600279E0B /* Hamiltonian.swift in Sources */,
+				ABB8DF3F2ABE508B00279E0B /* Wavefunctions.swift in Sources */,
 				ABB8DF162ABE3A6500279E0B /* ContentView.swift in Sources */,
+				ABB8DF472ABE64A800279E0B /* Energies.swift in Sources */,
 				ABB8DF142ABE3A6500279E0B /* Matrix_SchrodingerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +292,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB8DF402ABE508B00279E0B /* Wavefunctions.swift in Sources */,
 				ABB8DF262ABE3A6600279E0B /* Matrix_SchrodingerTests.swift in Sources */,
+				ABB8DF4C2ABE69B800279E0B /* Potentials.swift in Sources */,
+				ABB8DF442ABE586600279E0B /* Hamiltonian.swift in Sources */,
+				ABB8DF482ABE64A800279E0B /* Energies.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +304,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABB8DF4D2ABE69B800279E0B /* Potentials.swift in Sources */,
+				ABB8DF452ABE586600279E0B /* Hamiltonian.swift in Sources */,
+				ABB8DF412ABE508B00279E0B /* Wavefunctions.swift in Sources */,
 				ABB8DF322ABE3A6600279E0B /* Matrix_SchrodingerUITestsLaunchTests.swift in Sources */,
+				ABB8DF492ABE64A800279E0B /* Energies.swift in Sources */,
 				ABB8DF302ABE3A6600279E0B /* Matrix_SchrodingerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
