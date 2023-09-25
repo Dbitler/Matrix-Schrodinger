@@ -26,6 +26,27 @@
 		ABB8DF4B2ABE69B800279E0B /* Potentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF4A2ABE69B800279E0B /* Potentials.swift */; };
 		ABB8DF4C2ABE69B800279E0B /* Potentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF4A2ABE69B800279E0B /* Potentials.swift */; };
 		ABB8DF4D2ABE69B800279E0B /* Potentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB8DF4A2ABE69B800279E0B /* Potentials.swift */; };
+		ABD7BD7B2AC1F06300482728 /* HoldVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD7A2AC1F06300482728 /* HoldVariable.swift */; };
+		ABD7BD7C2AC1F06300482728 /* HoldVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD7A2AC1F06300482728 /* HoldVariable.swift */; };
+		ABD7BD7D2AC1F06300482728 /* HoldVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD7A2AC1F06300482728 /* HoldVariable.swift */; };
+		ABD7BD7F2AC1F08400482728 /* CalculatePlotData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD7E2AC1F08300482728 /* CalculatePlotData.swift */; };
+		ABD7BD802AC1F08400482728 /* CalculatePlotData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD7E2AC1F08300482728 /* CalculatePlotData.swift */; };
+		ABD7BD812AC1F08400482728 /* CalculatePlotData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD7E2AC1F08300482728 /* CalculatePlotData.swift */; };
+		ABD7BD832AC1F0BF00482728 /* PlotClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD822AC1F0BF00482728 /* PlotClass.swift */; };
+		ABD7BD842AC1F0BF00482728 /* PlotClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD822AC1F0BF00482728 /* PlotClass.swift */; };
+		ABD7BD852AC1F0BF00482728 /* PlotClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD822AC1F0BF00482728 /* PlotClass.swift */; };
+		ABD7BD872AC1F0EF00482728 /* PlotDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD862AC1F0EF00482728 /* PlotDataClass.swift */; };
+		ABD7BD882AC1F0EF00482728 /* PlotDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD862AC1F0EF00482728 /* PlotDataClass.swift */; };
+		ABD7BD892AC1F0EF00482728 /* PlotDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD862AC1F0EF00482728 /* PlotDataClass.swift */; };
+		ABD7BD8B2AC1F0FC00482728 /* PlotDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD8A2AC1F0FC00482728 /* PlotDataStruct.swift */; };
+		ABD7BD8C2AC1F0FC00482728 /* PlotDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD8A2AC1F0FC00482728 /* PlotDataStruct.swift */; };
+		ABD7BD8D2AC1F0FC00482728 /* PlotDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD8A2AC1F0FC00482728 /* PlotDataStruct.swift */; };
+		ABD7BD8F2AC1F13400482728 /* ChangingPlotParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD8E2AC1F13400482728 /* ChangingPlotParameters.swift */; };
+		ABD7BD902AC1F13400482728 /* ChangingPlotParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD8E2AC1F13400482728 /* ChangingPlotParameters.swift */; };
+		ABD7BD912AC1F13400482728 /* ChangingPlotParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD8E2AC1F13400482728 /* ChangingPlotParameters.swift */; };
+		ABD7BD932AC1F9B300482728 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD922AC1F9B300482728 /* DrawingView.swift */; };
+		ABD7BD942AC1F9B300482728 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD922AC1F9B300482728 /* DrawingView.swift */; };
+		ABD7BD952AC1F9B300482728 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7BD922AC1F9B300482728 /* DrawingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +82,13 @@
 		ABB8DF422ABE586600279E0B /* Hamiltonian.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hamiltonian.swift; sourceTree = "<group>"; };
 		ABB8DF462ABE64A800279E0B /* Energies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Energies.swift; sourceTree = "<group>"; };
 		ABB8DF4A2ABE69B800279E0B /* Potentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Potentials.swift; sourceTree = "<group>"; };
+		ABD7BD7A2AC1F06300482728 /* HoldVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldVariable.swift; sourceTree = "<group>"; };
+		ABD7BD7E2AC1F08300482728 /* CalculatePlotData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatePlotData.swift; sourceTree = "<group>"; };
+		ABD7BD822AC1F0BF00482728 /* PlotClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotClass.swift; sourceTree = "<group>"; };
+		ABD7BD862AC1F0EF00482728 /* PlotDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotDataClass.swift; sourceTree = "<group>"; };
+		ABD7BD8A2AC1F0FC00482728 /* PlotDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlotDataStruct.swift; sourceTree = "<group>"; };
+		ABD7BD8E2AC1F13400482728 /* ChangingPlotParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangingPlotParameters.swift; sourceTree = "<group>"; };
+		ABD7BD922AC1F9B300482728 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +140,14 @@
 			isa = PBXGroup;
 			children = (
 				ABB8DF132ABE3A6500279E0B /* Matrix_SchrodingerApp.swift */,
+				ABD7BD922AC1F9B300482728 /* DrawingView.swift */,
 				ABB8DF152ABE3A6500279E0B /* ContentView.swift */,
+				ABD7BD822AC1F0BF00482728 /* PlotClass.swift */,
+				ABD7BD7A2AC1F06300482728 /* HoldVariable.swift */,
+				ABD7BD7E2AC1F08300482728 /* CalculatePlotData.swift */,
+				ABD7BD862AC1F0EF00482728 /* PlotDataClass.swift */,
+				ABD7BD8E2AC1F13400482728 /* ChangingPlotParameters.swift */,
+				ABD7BD8A2AC1F0FC00482728 /* PlotDataStruct.swift */,
 				ABB8DF3E2ABE508B00279E0B /* Wavefunctions.swift */,
 				ABB8DF462ABE64A800279E0B /* Energies.swift */,
 				ABB8DF422ABE586600279E0B /* Hamiltonian.swift */,
@@ -280,11 +315,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABB8DF4B2ABE69B800279E0B /* Potentials.swift in Sources */,
+				ABD7BD7F2AC1F08400482728 /* CalculatePlotData.swift in Sources */,
 				ABB8DF432ABE586600279E0B /* Hamiltonian.swift in Sources */,
 				ABB8DF3F2ABE508B00279E0B /* Wavefunctions.swift in Sources */,
 				ABB8DF162ABE3A6500279E0B /* ContentView.swift in Sources */,
+				ABD7BD932AC1F9B300482728 /* DrawingView.swift in Sources */,
+				ABD7BD8F2AC1F13400482728 /* ChangingPlotParameters.swift in Sources */,
 				ABB8DF472ABE64A800279E0B /* Energies.swift in Sources */,
 				ABB8DF142ABE3A6500279E0B /* Matrix_SchrodingerApp.swift in Sources */,
+				ABD7BD872AC1F0EF00482728 /* PlotDataClass.swift in Sources */,
+				ABD7BD7B2AC1F06300482728 /* HoldVariable.swift in Sources */,
+				ABD7BD832AC1F0BF00482728 /* PlotClass.swift in Sources */,
+				ABD7BD8B2AC1F0FC00482728 /* PlotDataStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,11 +334,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABD7BD7C2AC1F06300482728 /* HoldVariable.swift in Sources */,
 				ABB8DF402ABE508B00279E0B /* Wavefunctions.swift in Sources */,
 				ABB8DF262ABE3A6600279E0B /* Matrix_SchrodingerTests.swift in Sources */,
+				ABD7BD942AC1F9B300482728 /* DrawingView.swift in Sources */,
+				ABD7BD8C2AC1F0FC00482728 /* PlotDataStruct.swift in Sources */,
 				ABB8DF4C2ABE69B800279E0B /* Potentials.swift in Sources */,
+				ABD7BD882AC1F0EF00482728 /* PlotDataClass.swift in Sources */,
+				ABD7BD902AC1F13400482728 /* ChangingPlotParameters.swift in Sources */,
+				ABD7BD802AC1F08400482728 /* CalculatePlotData.swift in Sources */,
 				ABB8DF442ABE586600279E0B /* Hamiltonian.swift in Sources */,
 				ABB8DF482ABE64A800279E0B /* Energies.swift in Sources */,
+				ABD7BD842AC1F0BF00482728 /* PlotClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,11 +354,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABB8DF4D2ABE69B800279E0B /* Potentials.swift in Sources */,
+				ABD7BD812AC1F08400482728 /* CalculatePlotData.swift in Sources */,
 				ABB8DF452ABE586600279E0B /* Hamiltonian.swift in Sources */,
 				ABB8DF412ABE508B00279E0B /* Wavefunctions.swift in Sources */,
 				ABB8DF322ABE3A6600279E0B /* Matrix_SchrodingerUITestsLaunchTests.swift in Sources */,
+				ABD7BD952AC1F9B300482728 /* DrawingView.swift in Sources */,
+				ABD7BD912AC1F13400482728 /* ChangingPlotParameters.swift in Sources */,
 				ABB8DF492ABE64A800279E0B /* Energies.swift in Sources */,
 				ABB8DF302ABE3A6600279E0B /* Matrix_SchrodingerUITests.swift in Sources */,
+				ABD7BD892AC1F0EF00482728 /* PlotDataClass.swift in Sources */,
+				ABD7BD7D2AC1F06300482728 /* HoldVariable.swift in Sources */,
+				ABD7BD852AC1F0BF00482728 /* PlotClass.swift in Sources */,
+				ABD7BD8D2AC1F0FC00482728 /* PlotDataStruct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
