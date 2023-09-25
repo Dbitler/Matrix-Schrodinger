@@ -279,7 +279,7 @@ class Hamiltonian: ObservableObject {
                 cblas_daxpy(Int32(xcount), coefficient, mywavefxninstance.wavefxnData[i], 1, &summedwavefxn, 1)
             }
             Calced_Wavefxns.append(summedwavefxn)
-            //JUST^ NEED TO WORK ON THIS, AND THAT'S IT HOLY SHIT!!!!
+            //JUST^ NEED TO WORK ON THIS, AND THAT'S IT HOLY SHIT!!!! ALL I NEED TO DO IS GRAPH. NEED TO BE ABLE TO PLOT INDIVIDUAL ENERGIES. 
         }
        
 
