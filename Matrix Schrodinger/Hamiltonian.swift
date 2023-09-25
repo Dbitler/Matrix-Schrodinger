@@ -53,7 +53,7 @@ class Hamiltonian: ObservableObject {
     }
 
     
-    func Ham_diagonalize() -> String{ //need to get diagonalization to work here, or else the entire thing goes up in smoek.
+    func Ham_diagonalize(wavefxnNumberData: Int) { //need to get diagonalization to work here, or else the entire thing goes up in smoek.
         //let realStartingArray = [[2.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0], [4.0, 2.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 4.0, 2.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 4.0, 2.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 4.0, 2.0, 4.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 4.0, 2.0, 4.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 2.0, 4.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 2.0, 4.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 2.0, 4.0], [4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 2.0]]
         let realStartingArray = Ham_matrix
         
@@ -71,13 +71,12 @@ class Hamiltonian: ObservableObject {
         
         resultsString += "\n"
         
-        resultsString += calculateEigenvalues(arrayForDiagonalization: flatArray)
+        resultsString += calculateEigenvalues(arrayForDiagonalization: flatArray, wavefxnNumberData: wavefxnNumberData)
         
             
         /* Complex Eigenvalues */
             
         resultsString += "Complex Eigenvalues Problem\n\n"
-        return resultsString
         //This returns the resultsstring obtained from the calc Eigenvalues function to the UI, and displays them
     }
     
@@ -85,7 +84,7 @@ class Hamiltonian: ObservableObject {
     ///
     /// - Parameter arrayForDiagonalization: linear Column Major FORTRAN Array for Diagonalization
     /// - Returns: String consisting of the Eigenvalues and Eigenvectors
-    func calculateEigenvalues(arrayForDiagonalization: [Double]) -> String {
+    func calculateEigenvalues(arrayForDiagonalization: [Double], wavefxnNumberData: Int) -> String {
         /* Integers sent to the FORTRAN routines must be type Int32 instead of Int */
         //var N = Int32(sqrt(Double(startingArray.count)))
         
@@ -146,6 +145,7 @@ class Hamiltonian: ObservableObject {
             {
                 if (wi[index]>=0.0)
                 {
+                    //WR is the real eigenvalue component, wi is the imaginary
                     returnString += "Eigenvalue\n\(wr[index]) + \(wi[index])i\n\n"
                 }
                 else
@@ -213,7 +213,20 @@ class Hamiltonian: ObservableObject {
             }
         }
         else {print("An error occurred\n")}
-        
+//        @Published var Calced_Eigenvalues : [Double] = []
+//        @Published var Calced_Eigenfxns : [[Double]] = []
+
+        //this for loop attempts to create a 2D array, matching the Eigenvalues to their respective Eigenfunctions. it successfully makes the 2D array, but it is not sorted, which is unfortunate.
+        var timer = 0
+        for item in (wr){
+            Calced_Eigenvalues.removeAll()
+            for valuex in 0..<(wavefxnNumberData) {
+    
+                Calced_Eigenvalues.append(vr[valuex + (100 * timer)])
+            }
+            Calced_Eigenfxns.append(Calced_Eigenvalues)
+            timer = timer + 1
+        }
         return (returnString)
     }
     
@@ -266,6 +279,7 @@ class Hamiltonian: ObservableObject {
                 cblas_daxpy(Int32(xcount), coefficient, mywavefxninstance.wavefxnData[i], 1, &summedwavefxn, 1)
             }
             Calced_Wavefxns.append(summedwavefxn)
+            //JUST^ NEED TO WORK ON THIS, AND THAT'S IT HOLY SHIT!!!!
         }
        
 

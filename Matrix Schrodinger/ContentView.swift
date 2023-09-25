@@ -186,6 +186,7 @@ struct ContentView: View {
         
         //used to make sure that the diagonalization actually works. 
        // outputText = myhamiltonianinstance.Ham_diagonalize()
+        myhamiltonianinstance.Ham_diagonalize(wavefxnNumberData: wave_number)
         
         //after hamiltonian is diagonalized, call upon this function to calculate the final wave function
         myhamiltonianinstance.calcfinalwavefxn(coefficientcount: wave_number)
