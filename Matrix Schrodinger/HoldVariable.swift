@@ -22,10 +22,10 @@ class HoldVariable: ObservableObject {
         var id: Self { self }
     }
     enum Plot: String, CaseIterable, Identifiable {
-        case Functional, Potential, Wave_Function
+        case Potential, Wave_Function
         var id: Self { self }
     }
     @Published var selectedOrientation: Orientation = .Square_well
-    @Published var selectedPlot: Plot = .Functional
+    @Published var selectedPlot: Plot = .Potential
     
 }

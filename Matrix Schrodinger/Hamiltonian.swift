@@ -8,6 +8,7 @@
 import SwiftUI
 import Accelerate
 
+//This class contains the function to populate the Hamiltonian, the function to diagonalize the Hamiltonian, and the function to calculate the final wave function.
 class Hamiltonian: ObservableObject {
 
     @Published var Ham_matrix : [[Double]] = []
@@ -21,7 +22,7 @@ class Hamiltonian: ObservableObject {
     @Published var Calced_Wavefxns : [[Double]] = []
     
     
-    func Ham_populate(){
+    func Ham_populate(xMin: Double, xMax: Double, xStep: Double, length: Double){
         var intermediary_matrix : [Double] = []
         for j in 0..<mywavefxninstance.wavefxnData.count{
             intermediary_matrix.removeAll()
@@ -42,18 +43,19 @@ class Hamiltonian: ObservableObject {
                     average += mywavefxninstance.wavefxnData[i][q] * mywavefxninstance.wavefxnData[j][q] * mypotentialinstance.Potential[q]
                     
                 }
-                let integral = (average / Double(mypotentialinstance.Potential.count)) * mywavefxninstance.Length
+                let integral = (average / Double(mypotentialinstance.Potential.count)) * length
                 matrix_element += integral
                 intermediary_matrix.append(matrix_element)
             }
             Ham_matrix.append(intermediary_matrix)
-            //gives us the hamiltonian matrix, which we will use and diagonalize. that will give us our energies, and we will have to create new wave functions.
+            //gives us the hamiltonian matrix, which we will use and diagonalize. that will give us our energies, and we will have to create new wave functions. SUCCESSFULLY PRINTS A 100X100 MATRIX LETS GO
         }
     }
 
     
-    func Ham_diagonalize(){ //need to get diagonalization to work here, or else the entire thing goes up in smoek. 
-        let realStartingArray = [[2.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0], [4.0, 2.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 4.0, 2.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 4.0, 2.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 4.0, 2.0, 4.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 4.0, 2.0, 4.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 2.0, 4.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 2.0, 4.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 2.0, 4.0], [4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 2.0]]
+    func Ham_diagonalize() -> String{ //need to get diagonalization to work here, or else the entire thing goes up in smoek.
+        //let realStartingArray = [[2.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0], [4.0, 2.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 4.0, 2.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 4.0, 2.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 4.0, 2.0, 4.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 4.0, 2.0, 4.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 2.0, 4.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 2.0, 4.0, 0.0], [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 2.0, 4.0], [4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 2.0]]
+        let realStartingArray = Ham_matrix
         
         
         var N = Int32(realStartingArray.count)
@@ -75,6 +77,8 @@ class Hamiltonian: ObservableObject {
         /* Complex Eigenvalues */
             
         resultsString += "Complex Eigenvalues Problem\n\n"
+        return resultsString
+        //This returns the resultsstring obtained from the calc Eigenvalues function to the UI, and displays them
     }
     
     /// calculateEigenvalues
@@ -251,10 +255,9 @@ class Hamiltonian: ObservableObject {
         return resultArray
     }
     
-    func calcfinalwavefxn(){
+    func calcfinalwavefxn(coefficientcount: Int){
         var average = 0.0
         let xcount = mypotentialinstance.Potential.count
-        let coefficientcount = mywavefxninstance.wavefxnNumberData
         for i in 0..<coefficientcount{
             var summedwavefxn = [Double](repeating: 0.0, count: xcount)
             for j in 0..<coefficientcount{

@@ -25,6 +25,9 @@ struct ContentView: View {
     @ObservedObject var myholdvariableinstance = HoldVariable()
     @ObservedObject private var calculator = CalculatePlotData()
     @ObservedObject var mypotentialinstance = Potentials()
+    @ObservedObject var mywavefxnvariableinstance = Wavefunctions()
+    @ObservedObject var myhamiltonianinstance = Hamiltonian()
+    @ObservedObject var myenergiesinstance = Energies()
     
     @State var isChecked:Bool = false
     @State var tempInput = ""
@@ -51,6 +54,8 @@ struct ContentView: View {
     @State var E_max = 30.0
     @State var E_step = 0.005
     @State var E_stepstring = "0.05" //also an input.
+    @State var wave_numberstring = "100"
+    @State var wave_number = 100
     @State var plotType = ""
     
     var body: some View {
@@ -68,12 +73,17 @@ struct ContentView: View {
                     TextField("E-min", text: $E0string)
                     TextField("E-max", text: $E_maxstring)
                 }
+                Text("Enter number of wavefunctions in expansion")
+                HStack {
+                    TextField("# of Wavefunctions", text: $wave_numberstring)
+    
+                }
                 HStack{
                     VStack{
                         List {
                             Picker("Plot", selection: $myholdvariableinstance.selectedPlot) {
                                 Text("Potential").tag(HoldVariable.Plot.Potential)
-                                Text("Functional").tag(HoldVariable.Plot.Functional)
+
                                 Text("Wave Function").tag(HoldVariable.Plot.Wave_Function)
                             }
                         }
@@ -117,7 +127,7 @@ struct ContentView: View {
                     LineMark(
                         x: .value("Energy", $0.xVal),
                         y: .value("Functional", $0.yVal)
-                        
+                        //need to remove this reference to the Functional. -DB FIX
                     )
                     .foregroundStyle($plotData.plotArray[selector].changingPlotParameters.lineColor.wrappedValue)
                     PointMark(x: .value("Position", $0.xVal), y: .value("Height", $0.yVal))
@@ -146,6 +156,77 @@ struct ContentView: View {
         
     }
     func graph(){
+        outputText = ""
+        delta_x = Double(delta_xstring)!
+         E0 = Double(E0string)!
+        E_max = Double(E_maxstring)!
+        E_step = Double(E_stepstring)!
+        x_max = Double(x_maxstring)!
+        x_min = Double(x_minstring)!
+        wave_number = Int(wave_numberstring)!
+        let length = x_max - x_min
+        //call on wavefunction first, then potentials, then that allows you to populate your hamiltoniana nd diagonalize.
+        
+        
+        mypotentialinstance.PotentialData = []
+        mywavefxnvariableinstance.wavefxnData = []
+        mywavefxnvariableinstance.xfxnData = []
+        mypotentialinstance.getPotential(potentialType: myholdvariableinstance.selectedOrientation.rawValue, xMin: x_min, xMax: x_max, xStep: self.delta_x)
+        
+        
+        mywavefxnvariableinstance.wavefxnPopulate(xMin: x_min, xMax: x_max, xStep: delta_x, length: length, wavefxnNumberData: wave_number)
+        myenergiesinstance.En_populate(xMin: x_min, xMax: x_max, xStep: delta_x, length: length, principleqnumber: wave_number)
+        
+    //these just make sure that the individual classes are calling the same instance of the same class, and not duplicates
+        myhamiltonianinstance.mywavefxninstance = mywavefxnvariableinstance
+        myhamiltonianinstance.myenergyinstance = myenergiesinstance
+        myhamiltonianinstance.mypotentialinstance = mypotentialinstance
+        
+        myhamiltonianinstance.Ham_populate(xMin: x_min, xMax: x_max, xStep: delta_x, length: length)
+        
+        //used to make sure that the diagonalization actually works. 
+       // outputText = myhamiltonianinstance.Ham_diagonalize()
+        
+        //after hamiltonian is diagonalized, call upon this function to calculate the final wave function
+        myhamiltonianinstance.calcfinalwavefxn(coefficientcount: wave_number)
+        
+        //use this for loop to find the wavefunctions for each of the energies. 
+
+//        myholdvariableinstance.pickerAnswers = answers
+//
+//        for item in answers {
+//            outputText += "Energy = \(item) eV\n"
+//
+//        }
+//
+        
+       // calculateExtrapolatedDifference(functionToDifferentiate: (Double,Double) -> Double, x: energy, h: 0.00001, C: C)
+        self.plotData.plotArray[0].plotData = []
+        calculator.plotDataModel = self.plotData.plotArray[0]
+        
+        
+        let plotType = myholdvariableinstance.selectedPlot.rawValue
+        
+        
+        switch plotType {
+        // Just graphing the Potential and the Wave Function, not the functional
+        case "Potential":
+            for m in 0...mypotentialinstance.PotentialData.count-1{
+                calculator.appendDataToPlot(plotData: [(x: mypotentialinstance.PotentialData[m].xPoint, y: mypotentialinstance.PotentialData[m].PotentialPoint)])
+            }
+            calculator.plotDataModel!.changingPlotParameters.yMax = 20.0
+            calculator.plotDataModel!.changingPlotParameters.yMin = -5.0
+            
+//        case "Wave_Function": //Doesn't work as is, just outputs garbage data.
+//            for m in 0...mywavefxnvariableinstance.wavefxnData.count-1{
+//                calculator.appendDataToPlot(plotData: [(x: mywavefxnvariableinstance.wavefxnData[m].xPoint, y: mywavefxnvariableinstance.wavefxnData[m].PsiPoint)])
+//            }
+        default:
+            Text("plot Type Error")
+        }
+        
+        setObjectWillChange(theObject: self.plotData)
+
         
     }
     
