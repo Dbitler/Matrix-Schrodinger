@@ -18,6 +18,7 @@ class Hamiltonian: ObservableObject {
     @Published var resultsString = ""
     @ObservedObject var mypotentialinstance = Potentials()
     @Published var Calced_Eigenvalues : [Double] = []
+    //EIVENVALUES ARE ALL MESSED UP FOR EVERYTHING BUT SQUARE WELL. FIX -DB
     @Published var Calced_Eigenfxns : [[Double]] = []
     @Published var Calced_Wavefxns : [[Double]] = []
     
@@ -279,7 +280,8 @@ class Hamiltonian: ObservableObject {
                 cblas_daxpy(Int32(xcount), coefficient, mywavefxninstance.wavefxnData[i], 1, &summedwavefxn, 1)
             }
             Calced_Wavefxns.append(summedwavefxn)
-            //JUST^ NEED TO WORK ON THIS, AND THAT'S IT HOLY SHIT!!!! ALL I NEED TO DO IS GRAPH. NEED TO BE ABLE TO PLOT INDIVIDUAL ENERGIES. 
+            //Need to be able to plot the individual energies. Calced_Wavefxn is an array of arrays,
+            //Also something is wrong with the wave functions besides square well, because the Calced wavefxns should peak ~1/4
         }
        
 

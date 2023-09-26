@@ -11,6 +11,13 @@ class Energies: ObservableObject{
     @Published var En_matrix : [Double] = []
     //if wavefxnnumberdata goes from 0 - 100, principle quantum number goes from 1 - 101.
     
+    /// //this gives us the energy values that required a rootfinder in the previous Schrodinger program, at the values where the wavefunction goes to 0. using the Square well as an example, the energies go 0.37, ~1.5, ~3.3, ~6.0... and so on.
+    /// - Parameters:
+    ///   - xMin: pulled from input UI
+    ///   - xMax: pulled from input UI
+    ///   - xStep: pulled from input UI
+    ///   - length: derived from xMax-xMin, the length of the squarewell
+    ///   - principleqnumber: number of total wavefunctions. utilized as "n" in the equation.
     func En_populate(xMin: Double, xMax: Double, xStep: Double, length: Double, principleqnumber: Int){
         // energy = n^2 * pi^2 * H^2 / 2mL^2, so have to make a matrix of Energies for every instance of L.
         let h_barc = 1.96E-7 // eV*s * speed of light (m/s) (1 meter = 1E10 angstrom

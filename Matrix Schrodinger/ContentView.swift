@@ -213,19 +213,24 @@ struct ContentView: View {
         // Just graphing the Potential and the Wave Function, not the functional
         case "Potential":
             for m in 0...mypotentialinstance.PotentialData.count-1{
+                //when checking the PotentialData array, the potentials match the picker, with the square well being 0 at all points, and the linear well increasing linearly. dunno why it doesn't print. -DB
                 calculator.appendDataToPlot(plotData: [(x: mypotentialinstance.PotentialData[m].xPoint, y: mypotentialinstance.PotentialData[m].PotentialPoint)])
             }
-            calculator.plotDataModel!.changingPlotParameters.yMax = 20.0
-            calculator.plotDataModel!.changingPlotParameters.yMin = -5.0
+            calculator.plotDataModel!.changingPlotParameters.xMax = x_max
+            calculator.plotDataModel!.changingPlotParameters.xMin = x_min
+            calculator.plotDataModel!.changingPlotParameters.yMax = Double(mypotentialinstance.PotentialData[mypotentialinstance.PotentialData.count-2].PotentialPoint) + 2.0
+            calculator.plotDataModel!.changingPlotParameters.yMin = 0.0
             
+            //Think this has to print the final Calced wave function, but having trouble figuring out the variable names for the x/y.
 //        case "Wave_Function": //Doesn't work as is, just outputs garbage data.
 //            for m in 0...mywavefxnvariableinstance.wavefxnData.count-1{
-//                calculator.appendDataToPlot(plotData: [(x: mywavefxnvariableinstance.wavefxnData[m].xPoint, y: mywavefxnvariableinstance.wavefxnData[m].PsiPoint)])
+//                //calculator.appendDataToPlot(plotData: [(x: mywavefxnvariableinstance.wavefxnData[m].xPoint, y: mywavefxnvariableinstance.wavefxnData[m].PsiPoint)])
+//                calculator.appendDataToPlot(plotData: [(x: myhamiltonianinstance.Calced_Wavefxns[m], y: mywavefxnvariableinstance.wavefxnData[m].PsiPoint)])
 //            }
         default:
             Text("plot Type Error")
         }
-        
+        //This should be forcing an update to the plotData class, which theoretically should make it graph properly.
         setObjectWillChange(theObject: self.plotData)
 
         
