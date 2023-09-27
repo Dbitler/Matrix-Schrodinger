@@ -190,40 +190,41 @@ class Potentials: ObservableObject {
               
               finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
           
-//          case "Coupled Square Well + Field":
-//
-//
-//
-//              startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
-//
-//              for i in stride(from: xMin+xStep, to: xMin + (xMax-xMin)*0.4, by: xStep) {
-//
-//                  PotentialData.append((xPoint: i, PotentialPoint: 0.0))
-//
-//              }
-//
-//              for i in stride(from: xMin + (xMax-xMin)*0.4, to: xMin + (xMax-xMin)*0.6, by: xStep) {
-//
-//                  PotentialData.append((xPoint: i, PotentialPoint: 4.0))
-//
-//              }
-//
-//              for i in stride(from: xMin + (xMax-xMin)*0.6, to: xMax, by: xStep) {
-//
-//                  PotentialData.append((xPoint: i, PotentialPoint: 0.0))
-//
-//              }
-//
+          case "Coupled_Square_Well_Field":
+
+
+
+              startPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+
+              for i in stride(from: xMin+xStep, to: xMin + (xMax-xMin)*0.4, by: xStep) {
+
+                  PotentialData.append((xPoint: i, PotentialPoint: 0.0))
+
+              }
+
+              for i in stride(from: xMin + (xMax-xMin)*0.4, to: xMin + (xMax-xMin)*0.6, by: xStep) {
+
+                  PotentialData.append((xPoint: i, PotentialPoint: 4.0))
+
+              }
+
+              for i in stride(from: xMin + (xMax-xMin)*0.6, to: xMax, by: xStep) {
+
+                  PotentialData.append((xPoint: i, PotentialPoint: 0.0))
+
+              }
+
+              //NEED TO SEE IF THIS SHOULD BE IMPLEMENTED TOOTSWEET -DB
 //              for i in 1 ..< (PotentialData.count) {
 //
 //                  PotentialData.oneDPotentialYArray[i] += ((PotentialData.oneDPotentialXArray[i]-xMin)*4.0*0.1)
 //                  PotentialData.append((xPoint: i, PotentialPoint: ))
 //              }
-//
-//
-//              finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
+
+
+              finishPotential(xMin: xMin, xMax: xMax, xStep: xStep)
           
-          case "Harmonic Oscillator":
+          case "Harmonic_Oscillator":
               
          
               
@@ -231,6 +232,7 @@ class Potentials: ObservableObject {
               let xMaxHO = 20.0
               let xStepHO = 0.001
               
+              //essentially goes from 0 - 40, much larger than my other ones. Need to figure out why this doesn't work. -DB
               startPotential(xMin: xMinHO+xMaxHO, xMax: xMaxHO+xMaxHO, xStep: xStepHO)
               
               for i in stride(from: xMinHO+xStepHO, through: xMaxHO-xStepHO, by: xStepHO) {

@@ -101,7 +101,7 @@ struct ContentView: View {
                                     Text("Square Barrier").tag(HoldVariable.Orientation.Square_barrier)
                                     Text("Triangle Barrier").tag(HoldVariable.Orientation.Triangle_barrier)
                                     Text("Coupled Parabolic Well").tag(HoldVariable.Orientation.Coupled_Parabolic_Well)
-                                    // Text("Coupled Square Well + Field").tag(HoldVariable.Orientation.Coupled_Square_Well_Field)
+                                     Text("Coupled Square Well + Field").tag(HoldVariable.Orientation.Coupled_Square_Well_Field)
                                     Text("Harmonic Oscillator").tag(HoldVariable.Orientation.Harmonic_Oscillator)
                                     // Text("Kronig + Penney").tag(HoldVariable.Orientation.Kronig_penney)
                                     // Text("Variable Kronig - Penney").tag(HoldVariable.Orientation.Variable_Kronig)
@@ -213,12 +213,21 @@ struct ContentView: View {
         // Just graphing the Potential and the Wave Function, not the functional
         case "Potential":
             for m in 0...mypotentialinstance.PotentialData.count-1{
-                //when checking the PotentialData array, the potentials match the picker, with the square well being 0 at all points, and the linear well increasing linearly. dunno why it doesn't print. -DB
                 calculator.appendDataToPlot(plotData: [(x: mypotentialinstance.PotentialData[m].xPoint, y: mypotentialinstance.PotentialData[m].PotentialPoint)])
             }
             calculator.plotDataModel!.changingPlotParameters.xMax = x_max
             calculator.plotDataModel!.changingPlotParameters.xMin = x_min
-            calculator.plotDataModel!.changingPlotParameters.yMax = Double(mypotentialinstance.PotentialData[mypotentialinstance.PotentialData.count-2].PotentialPoint) + 2.0
+            
+            //this code accounts for potentials with drastically varying y-values, with peaks across the slope. 
+            var heigh_var = 0.0
+            for i in 1..<(mypotentialinstance.PotentialData.count - 1){
+                if (heigh_var < mypotentialinstance.PotentialData[i].PotentialPoint){
+                    heigh_var = mypotentialinstance.PotentialData[i].PotentialPoint
+                }
+            }
+            calculator.plotDataModel!.changingPlotParameters.yMax = heigh_var + 2.0
+
+//            calculator.plotDataModel!.changingPlotParameters.yMax = Double(mypotentialinstance.PotentialData[mypotentialinstance.PotentialData.count-2].PotentialPoint) + 2.0
             calculator.plotDataModel!.changingPlotParameters.yMin = 0.0
             
             //Think this has to print the final Calced wave function, but having trouble figuring out the variable names for the x/y.
