@@ -57,6 +57,8 @@ struct ContentView: View {
     @State var wave_numberstring = "100"
     @State var wave_number = 100
     @State var plotType = ""
+    @State var wave_string = "0"
+    @State var wave = 0
     
     var body: some View {
         HStack{
@@ -75,7 +77,13 @@ struct ContentView: View {
                 }
                 Text("Enter number of wavefunctions in expansion")
                 HStack {
+                    //usually is at 100, but can be easily changed, and is a lot faster at lower values. NEED TO MAKE A PICKER FOR A SELECTION OF ENERGIES -DB
                     TextField("# of Wavefunctions", text: $wave_numberstring)
+    
+                }
+               // Text("Enter Wave Number to View")
+                HStack {
+                    TextField("Wavefunction number", text: $wave_string)
     
                 }
                 HStack{
@@ -164,6 +172,7 @@ struct ContentView: View {
         x_max = Double(x_maxstring)!
         x_min = Double(x_minstring)!
         wave_number = Int(wave_numberstring)!
+        wave = Int(wave_string)!
         let length = x_max - x_min
         //call on wavefunction first, then potentials, then that allows you to populate your hamiltoniana nd diagonalize.
         
@@ -231,11 +240,36 @@ struct ContentView: View {
             calculator.plotDataModel!.changingPlotParameters.yMin = 0.0
             
             //Think this has to print the final Calced wave function, but having trouble figuring out the variable names for the x/y.
-//        case "Wave_Function": //Doesn't work as is, just outputs garbage data.
-//            for m in 0...mywavefxnvariableinstance.wavefxnData.count-1{
-//                //calculator.appendDataToPlot(plotData: [(x: mywavefxnvariableinstance.wavefxnData[m].xPoint, y: mywavefxnvariableinstance.wavefxnData[m].PsiPoint)])
-//                calculator.appendDataToPlot(plotData: [(x: myhamiltonianinstance.Calced_Wavefxns[m], y: mywavefxnvariableinstance.wavefxnData[m].PsiPoint)])
-//            }
+        case "Wave_Function": //Doesn't work as is, just outputs garbage data.
+            for m in 0...mywavefxnvariableinstance.wavefxnData.count-1{
+                //original code.
+                //calculator.appendDataToPlot(plotData: [(x: mywavefxnvariableinstance.wavefxnData[m].xPoint, y: mywavefxnvariableinstance.wavefxnData[m].PsiPoint)])
+                //the Calced Wave fxn array is ordered as 100 arrays of 100 arrays, or the 100 wavefunctions that are expanded.
+                // correction, it is a 100 arrays, each containing 201 values. I think this is because each of the energy values corresponds to a point on the length per xStep. EX: for x_step of 1, and wavefunctions of 5, there are 5 arrays containing 11 values.
+                //Right now, it only works for the 0th energy, need to make it work for all, or at the very least some energies.
+                var step = 0
+                for i in stride(from:x_min, through:x_max, by: delta_x){
+                    step = Int(step)
+                    calculator.appendDataToPlot(plotData: [(x: Double(i), y: mywavefxnvariableinstance.wavefxnData[wave][step])])
+                    step = step + 1
+                }
+
+          }
+            var heigh_var = 0.0
+            for i in 1..<(mywavefxnvariableinstance.wavefxnData[wave].count - 1){
+                if (heigh_var < mywavefxnvariableinstance.wavefxnData[wave][i]){
+                    heigh_var = mywavefxnvariableinstance.wavefxnData[wave][i]
+                }
+            }
+            calculator.plotDataModel!.changingPlotParameters.yMax = heigh_var
+            
+            var depth_var = 0.0
+            for i in 1..<(mywavefxnvariableinstance.wavefxnData[wave].count - 1){
+                if (depth_var > mywavefxnvariableinstance.wavefxnData[wave][i]){
+                    depth_var = mywavefxnvariableinstance.wavefxnData[wave][i]
+                }
+            }
+            calculator.plotDataModel!.changingPlotParameters.yMin = depth_var
         default:
             Text("plot Type Error")
         }

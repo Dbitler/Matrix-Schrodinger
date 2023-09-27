@@ -223,7 +223,7 @@ class Hamiltonian: ObservableObject {
             Calced_Eigenvalues.removeAll()
             for valuex in 0..<(wavefxnNumberData) {
     
-                Calced_Eigenvalues.append(vr[valuex + (100 * timer)])
+                Calced_Eigenvalues.append(vr[valuex + (wavefxnNumberData * timer)])
             }
             Calced_Eigenfxns.append(Calced_Eigenvalues)
             timer = timer + 1
