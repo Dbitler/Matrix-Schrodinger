@@ -243,6 +243,8 @@ class Potentials: ObservableObject {
               
               finishPotential(xMin: xMinHO+xMaxHO, xMax: xMaxHO+xMaxHO, xStep: xStepHO)
               
+              
+              //UNABLE TO GET THE COMMENTED-OUT CASES TO FUNCTION, DUE TO USE OF 1D ARRAYS. SORRY. -DB
 //          case "Kronig - Penney":
 //
 //              let hbar2overm = pow(h_barc, 2.0) * pow(1E-4,2) / m_e
